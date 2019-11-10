@@ -63,7 +63,7 @@ public class TabFragment extends Fragment
     private Indicator indicator;
 
     // views for circlular drawables below android lollipop
-    private ImageView circleDrawable1, circleDrawable2;
+//    private ImageView circleDrawable1, circleDrawable2;
 
     // color drawable for action bar background
     private ColorDrawable colorDrawable = new ColorDrawable();
@@ -85,8 +85,8 @@ public class TabFragment extends Fragment
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             indicator = getActivity().findViewById(R.id.indicator);
         } else {
-            circleDrawable1 = getActivity().findViewById(R.id.tab_indicator1);
-            circleDrawable2 = getActivity().findViewById(R.id.tab_indicator2);
+//            circleDrawable1 = getActivity().findViewById(R.id.tab_indicator1);
+//            circleDrawable2 = getActivity().findViewById(R.id.tab_indicator2);
         }
 
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -145,9 +145,9 @@ public class TabFragment extends Fragment
 
             try {
                 mViewPager.setCurrentItem(l, true);
-                if (circleDrawable1 != null && circleDrawable2 != null) {
-                    updateIndicator(mViewPager.getCurrentItem());
-                }
+//                if (circleDrawable1 != null && circleDrawable2 != null) {
+//                    updateIndicator(mViewPager.getCurrentItem());
+//                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -307,7 +307,7 @@ public class TabFragment extends Fragment
             }
         }
 
-        if (circleDrawable1 != null && circleDrawable2 != null) updateIndicator(p1);
+//        if (circleDrawable1 != null && circleDrawable2 != null) updateIndicator(p1);
     }
 
     @Override
@@ -381,13 +381,13 @@ public class TabFragment extends Fragment
 
         int accentColor = mainActivity.getAccent();
 
-        if (index == 0) {
-            circleDrawable1.setImageDrawable(new ColorCircleDrawable(accentColor));
-            circleDrawable2.setImageDrawable(new ColorCircleDrawable(Color.GRAY));
-        } else {
-            circleDrawable1.setImageDrawable(new ColorCircleDrawable(accentColor));
-            circleDrawable2.setImageDrawable(new ColorCircleDrawable(Color.GRAY));
-        }
+//        if (index == 0) {
+//            circleDrawable1.setImageDrawable(new ColorCircleDrawable(accentColor));
+//            circleDrawable2.setImageDrawable(new ColorCircleDrawable(Color.GRAY));
+//        } else {
+//            circleDrawable1.setImageDrawable(new ColorCircleDrawable(accentColor));
+//            circleDrawable2.setImageDrawable(new ColorCircleDrawable(Color.GRAY));
+//        }
     }
 
 }

@@ -23,7 +23,7 @@ public class LruBitmapCache extends LruCache<String, Bitmap> implements ImageLoa
     }
 
     private static int getDefaultCacheSize() {
-        int memory = (int) (Runtime.getRuntime().maxMemory()/1024);
+        int memory = (int) (Runtime.getRuntime().maxMemory()/1024); // Tổng bộ nhớ đc chỉ định
         return memory/8;
     }
 

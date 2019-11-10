@@ -18,11 +18,6 @@ import android.widget.ImageView;
 import com.amaze.filemanager.R;
 import com.amaze.filemanager.utils.Utils;
 
-
-/**
- * Created by Arpit on 23-01-2015
- *    edited by Emmanuel Messulam<emmanuelbendavid@gmail.com>
- */
 public class RoundedImageView extends ImageView {
 
     private static final float BACKGROUND_CIRCLE_MARGIN_PERCENTUAL = 0.015f;

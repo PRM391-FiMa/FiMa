@@ -9,19 +9,14 @@ import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * @author Emmanuel
- *         on 6/10/2017, at 15:41.
- */
-
 public class CircularColorsView extends View {
 
-    private static final float DISTANCE_PERCENTUAL = 0.08f;
-    private static final float DIAMETER_PERCENTUAL = 0.65f;
-    private static final int SEMICIRCLE_LINE_WIDTH = 0;
+    private static final float DISTANCE_PERCENTUAL = 0.08f; // %khoảng cách
+    private static final float DIAMETER_PERCENTUAL = 0.65f; // %đường kính
+    private static final int SEMICIRCLE_LINE_WIDTH = 0; //
 
-    private boolean paintInitialized = false;
-    private Paint dividerPaint = new Paint();
+    private boolean paintInitialized = false;   // khởi tạo màu = false
+    private Paint dividerPaint = new Paint();   // dải phân cách
     private Paint[] colors = {new Paint(), new Paint(), new Paint(), new Paint()};
     private RectF semicicleRect = new RectF();
 
@@ -37,15 +32,15 @@ public class CircularColorsView extends View {
     }
 
     private void init() {
-        dividerPaint.setColor(Color.BLACK);
-        dividerPaint.setStyle(Paint.Style.STROKE);
-        dividerPaint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        dividerPaint.setStrokeWidth(SEMICIRCLE_LINE_WIDTH);
+        dividerPaint.setColor(Color.BLACK); // màu đen
+        dividerPaint.setStyle(Paint.Style.STROKE); // kiểu sơn nét chữ
+        dividerPaint.setFlags(Paint.ANTI_ALIAS_FLAG); // khử răng cưa khi vẽ
+        dividerPaint.setStrokeWidth(SEMICIRCLE_LINE_WIDTH); //Đặt width cho stroke
     }
 
     public void setDividerColor(int color) {
         dividerPaint.setColor(color);
-    }
+    } // thiết lập bố cục màu
 
     public void setColors(int color, int color1, int color2, int color3) {
         colors[0].setColor(color);
@@ -55,23 +50,23 @@ public class CircularColorsView extends View {
 
         for (Paint p : colors) p.setFlags(Paint.ANTI_ALIAS_FLAG);
 
-        paintInitialized = true;
+        paintInitialized = true; // bắt đầu khởi tạo màu
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if(isInEditMode()) setColors(Color.CYAN, Color.RED, Color.GREEN, Color.BLUE);
-        if(!paintInitialized) throw new IllegalStateException("Paint has not actual color!");
+        if(isInEditMode()) setColors(Color.CYAN, Color.RED, Color.GREEN, Color.BLUE); // đang ở chế độ chỉnh sửa
+        if(!paintInitialized) throw new IllegalStateException("Paint has not actual color!"); // ném ra lỗi nếu ko sơn được màu
 
-        float distance = getWidth() * DISTANCE_PERCENTUAL;
+        float distance = getWidth() * DISTANCE_PERCENTUAL; // khoảng cách
 
-        float diameterByHeight = getHeight()* DIAMETER_PERCENTUAL;
-        float diameterByWidth = (getWidth() - distance*2)/3f* DIAMETER_PERCENTUAL;
-        float diameter = Math.min(diameterByHeight, diameterByWidth);
+        float diameterByHeight = getHeight()* DIAMETER_PERCENTUAL; // đường kính theo chiều cao
+        float diameterByWidth = (getWidth() - distance*2)/3f* DIAMETER_PERCENTUAL; // đường kính theo chiều rộng
+        float diameter = Math.min(diameterByHeight, diameterByWidth); //đường kính
 
-        float radius = diameter/2f;
+        float radius = diameter/2f; // bán kính
 
         int centerY = getHeight()/2;
         float[] positionX = {getWidth()- diameter - distance - diameter - distance - radius,

@@ -49,11 +49,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.appcompat.widget.AppCompatButton;
+
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
@@ -99,6 +101,7 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.IValueFormatter;
 import com.github.mikephil.charting.utils.ViewPortHandler;
 import com.google.android.material.textfield.TextInputEditText;
+
 import java.io.File;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -368,6 +371,7 @@ public class GeneralDialogCreation {
         showPropertiesDialog(f, null, activity, false, appTheme, false, true);
     }
 
+    // hiển thị hộp thoại thuộc tính
     private static void showPropertiesDialog(final HybridFileParcelable baseFile, final String permissions,
                                              ThemedActivity base, boolean isRoot, AppTheme appTheme,
                                              boolean showPermissions, boolean forStorage) {
@@ -379,8 +383,8 @@ public class GeneralDialogCreation {
                 items = c.getString(R.string.calculating),
                 name = baseFile.getName(),
                 parent = baseFile.getReadablePath(baseFile.getParent(c));
-
-        File nomediaFile = baseFile.isDirectory()? new File(baseFile.getPath() + "/" + FileUtils.NOMEDIA_FILE) : null;
+// vị trí
+        File nomediaFile = baseFile.isDirectory() ? new File(baseFile.getPath() + "/" + FileUtils.NOMEDIA_FILE) : null;
 
         MaterialDialog.Builder builder = new MaterialDialog.Builder(base);
         builder.title(c.getString(R.string.properties));
@@ -461,7 +465,7 @@ public class GeneralDialogCreation {
         GenerateHashesTask hashGen = new GenerateHashesTask(baseFile, c, v);
         hashGen.executeOnExecutor(executor);
 
-        /*Chart creation and data loading*/
+        /* Tạo biểu đồ và tải dữ liệu */
         {
             boolean isRightToLeft = c.getResources().getBoolean(R.bool.is_right_to_left);
             boolean isDarkTheme = appTheme.getMaterialDialogTheme() == Theme.DARK;
@@ -600,40 +604,6 @@ public class GeneralDialogCreation {
 
             return prefix + Formatter.formatFileSize(context, (long) value);
         }
-    }
-
-    public static void showCloudDialog(final MainActivity mainActivity, AppTheme appTheme, final OpenMode openMode) {
-        int accentColor = mainActivity.getAccent();
-        final MaterialDialog.Builder builder = new MaterialDialog.Builder(mainActivity);
-
-        switch (openMode) {
-            case DROPBOX:
-                builder.title(mainActivity.getString(R.string.cloud_dropbox));
-                break;
-            case BOX:
-                builder.title(mainActivity.getString(R.string.cloud_box));
-                break;
-            case GDRIVE:
-                builder.title(mainActivity.getString(R.string.cloud_drive));
-                break;
-            case ONEDRIVE:
-                builder.title(mainActivity.getString(R.string.cloud_onedrive));
-                break;
-        }
-
-        builder.theme(appTheme.getMaterialDialogTheme());
-        builder.content(mainActivity.getString(R.string.cloud_remove));
-
-        builder.positiveText(mainActivity.getString(R.string.yes));
-        builder.positiveColor(accentColor);
-        builder.negativeText(mainActivity.getString(R.string.no));
-        builder.negativeColor(accentColor);
-
-        builder.onPositive((dialog, which) -> mainActivity.deleteConnection(openMode));
-
-        builder.onNegative((dialog, which) -> dialog.cancel());
-
-        builder.show();
     }
 
     public static void showEncryptWarningDialog(final Intent intent, final MainFragment main,
@@ -839,7 +809,7 @@ public class GeneralDialogCreation {
     public static void showDecryptDialog(Context c, final MainActivity main, final Intent intent,
                                          AppTheme appTheme, final String password,
                                          final EncryptDecryptUtils.DecryptButtonCallbackInterface
-                                          decryptButtonCallbackInterface) {
+                                                 decryptButtonCallbackInterface) {
 
         showPasswordDialog(c, main, appTheme,
                 R.string.crypt_decrypt, R.string.authenticate_password,
@@ -879,7 +849,7 @@ public class GeneralDialogCreation {
                 .negativeText(R.string.cancel)
                 .negativeColor(accentColor);
 
-        if(negativeCallback != null)
+        if (negativeCallback != null)
             builder.onNegative(negativeCallback);
         else
             builder.onNegative((dialog, which) -> dialog.cancel());
@@ -920,7 +890,7 @@ public class GeneralDialogCreation {
                 .show();
     }
 
-
+    /* Hộp thoại chuyên sâu*/
     public static void showArchiveDialog(final File f, final MainActivity m) {
         int accentColor = m.getAccent();
         MaterialDialog.Builder mat = new MaterialDialog.Builder(m);

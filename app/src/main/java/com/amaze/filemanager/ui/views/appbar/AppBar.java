@@ -12,13 +12,10 @@ import com.amaze.filemanager.fragments.preference_fragments.PreferencesConstants
 import static android.os.Build.VERSION.SDK_INT;
 
 /**
- * layout_appbar.xml contains the layout for AppBar and BottomBar
+ * layout_appbar.xml chứa bố cục cho AppBar và BottomBar
  *
- * This is a class containing containing methods to each section of the AppBar,
- * creating the object loads the views.
+ * Đây là một lớp chứa các phương thức cho từng phần của AppBar, tạo đối tượng tải các khung nhìn.
  *
- * @author Emmanuel
- *         on 2/8/2017, at 23:27.
  */
 
 public class AppBar {

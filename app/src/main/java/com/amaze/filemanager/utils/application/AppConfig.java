@@ -202,7 +202,7 @@ public class AppConfig extends GlideApplication {
     }
 
     /**
-     * Run a runnable in the main application thread
+     * Chạy một runnable trong luồng ứng dụng chính
      *
      * @param r Runnable to run
      */

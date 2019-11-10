@@ -42,13 +42,10 @@ import java.util.ArrayList;
 import static com.amaze.filemanager.fragments.preference_fragments.PreferencesConstants.PREFERENCE_CHANGEPATHS;
 
 /**
- * layout_appbar.xml contains the layout for AppBar and BottomBar
+ * layout_appbar.xml chứa bố cục cho AppBar và BottomBar
  *
- * BottomBar, it lays under the toolbar, used to show data of what is being displayed in the MainFragment,
- * for example directory, folder and file amounts, etc.
+ * BottomBar được sử dụng để hiển thị dữ liệu trong MainFragment
  *
- * @author Emmanuel
- *         on 2/8/2017, at 23:31.
  */
 
 public class BottomBar implements View.OnTouchListener{
@@ -93,8 +90,8 @@ public class BottomBar implements View.OnTouchListener{
 
         pathText = a.findViewById(R.id.pathname);
 
-        scroll.setSmoothScrollingEnabled(true);
-        pathScroll.setSmoothScrollingEnabled(true);
+        scroll.setSmoothScrollingEnabled(true); //thiết lập tính năng cuộn mượt mà
+        pathScroll.setSmoothScrollingEnabled(true); //thiết lập tính năng cuộn mượt mà
 
         buttonParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         buttonParams.gravity = Gravity.CENTER_VERTICAL;

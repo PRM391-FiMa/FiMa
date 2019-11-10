@@ -6,8 +6,8 @@ import android.view.MenuItem;
 import android.widget.ImageButton;
 
 /**
- * This manages to set the color of the selected ActionView
- * and unset the ActionView that is not selected anymore
+ * Quản lý màu các ActionView đã chọn
+ * và bỏ màu các ActionView không được chọn
  */
 public class ActionViewStateManager {
 
